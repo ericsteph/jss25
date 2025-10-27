@@ -1,0 +1,795 @@
+---
+output:
+  # title: ""
+  xaringan::moon_reader:
+    css: [default, "metropolis_ustat.css", "metropolis-fonts", "specifici.css"]
+    lib_dir: immagini
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: 16:9
+    seal: false
+    includes:
+      after_body: insert-logo.html
+---
+
+```{r setup, include=FALSE}
+rm(list=ls())
+
+options(htmltools.dir.version = FALSE)
+
+knitr::opts_chunk$set(fig.width=4.25, fig.height=3.5, fig.retina=3,
+                      message=FALSE, warning=FALSE, cache = TRUE, 
+                      autodep = TRUE, hiline=TRUE
+                      , dev = "svg"
+                      )
+
+options(knitr.kable.NA = '')
+# source(file = "Figure.R", encoding = "UTF-8")
+
+source("../scipts/00_base_fig_empl.R", encoding = "UTF-8")
+source("../R/emplois_long.R", encoding = "UTF-8")
+source("../R/fig_empl_line.R", encoding = "UTF-8")
+source("../R/fig_empl_bar.R", encoding = "UTF-8")
+source("../R/fig_violin.R", encoding = "UTF-8")
+
+source("../R/pl_vac_long.R", encoding = "UTF-8")
+source("../R/fig_pvac_line.R", encoding = "UTF-8")
+source("../R/fig_pvac_bar.R", encoding = "UTF-8")
+
+
+source("../R/diff_rcr_long.R", encoding = "UTF-8")
+source("../R/fig_drcl_line.R", encoding = "UTF-8")
+source("../R/fig_drcr_violin.R", encoding = "UTF-8")
+
+d1 <- readRDS(file = "../cubes/cube_statem_101.rds")
+d2 <- readRDS(file = "../cubes/cube_statem_103.rds")
+d3 <- readRDS(file = "../cubes/cube_statem_107.rds")
+
+tmp_long1 <- emplois_long(d1)
+
+source("../scipts/00_base_fig_plvac.R", encoding = "UTF-8")
+tmp_long2 <- pl_vac_long(d2)
+tmp_long3 <- diff_rcl_long(d3)
+```
+
+class: title-slide clear
+
+![](immagini/logo_Immagine1_250.png)
+
+
+# **Plus de 600.000 emplois dans le socio-sanitaire**
+
+<br>
+<br>
+<br>
+<br>
+
+### .font60[.mid-warm-grey[Etudes longitudinales / Longitudinalstudien | Atelier XXI]]
+### .font85[Eric Stephani | Ufficio di statistica, Ustat]
+### .font70[Journées suisses de la statistique 2025 | *Genève, vendredi 07 novembre 2025*]
+
+---
+# Plus de 600.000 emplois dans le socio-sanitaire
+
+.pull-left[
+
+.img-left[
+```{r, echo = FALSE}
+magick::image_read("immagini/fig1.jpg")
+
+```
+
+]
+
+.font60[
+["Y a-t-il une augmentation de la pénurie de personnel?"](https://www.geneve.ch/themes/culture/bibliotheques/interroge/reponses/il-y-aujourhui-certaines-professions-une-penurie-ou-passes-ces-salaries-et-domaines-se-ils-reconvertis)
+.mid-warm-grey[(Reponse du service de référence en ligne *Interroge*, canton de Genève (janvier 2023)
+]
+]
+
+]
+
+--
+
+.pull-right[
+.hl[**...au-delà des chiffres**]
+
+.font80[
+.mid-warm-grey[1. ] Une statistique: la STATEM    
+.mid-warm-grey[2. ] Un article: "Plus de 600.000 emplois..."     
+.mid-warm-grey[3. ] Quel rôle pour la statistique publique?  
+<br>  
+.mid-warm-grey[-->] Changements, expériences, discussion  
+<br>  
+
+]
+]
+
+
+---
+class: hide-logo, inverse, center, middle
+
+# .font80[1.] Une statistique, la STATEM
+
+<br>
+
+.font80[.mid-warm-grey[La statistique de l’emploi [(STATEM)](https://www.bfs.admin.ch/bfs/fr/home/statistiques/industrie-services/entreprises-emplois/statistique-emploi.html)
+, UST
+]
+]
+
+---
+class: clear
+
+
+.font70[
+.left-column[
+
+<br>
+#### 600.000 emplois dans le socio-sanitaire
+
+]
+]
+
+.font70[
+.right-column[
+
+<br>
+### Perceptions très différentes
+
+.img-left[![](immagini/omini_urlano3.png)]
+
+**Niveau des emplois**
+- Trop vs. pas suffisantes  
+- Croissance ponctuelle vs. croissance regulière  
+- Urgence vs. contrôle
+- ...
+
+]
+]
+
+
+---
+class: clear
+
+
+.font70[
+.left-column[
+
+<br>
+#### 600.000 emplois dans le socio-sanitaire
+#### Quelle source statistique?
+
+]
+]
+
+
+.font70[
+.right-column[
+
+.img-left[![](immagini/omino-lente2.png)]
+
+<br>
+### La statistique de l'emploi (STATEM), pourquoi?
+
+**Nombre d'emplois**  
+
+   - *publication*: deux mois après la date de référence  
+   - *fréquence*: trimestrielle  
+   - *caractéristiques*: activité économique (NOGA2-digit), taux d'occupation, sexe
+
+]
+]
+
+--
+
+.font70[
+.right-column[
+
+.hl[*mais aussi:*]  
+**>** *Places vacantes*  
+**>** *Difficultés de recrutement*  
+**>** *Prévision d'évolution de l'emploi*
+
+]
+]
+
+---
+class: hide-logo, inverse, center, middle
+
+# .font80[2.] Un article: "Plus de 600.000 emplois..."
+
+<br>
+
+.font80[.mid-warm-grey[Oltre 600.000 impieghi nel sociosanitario. Un settore e una crescita sempre più sottopressione]]  
+.font70[.mid-warm-grey[Stephani E. (2025), Ustat, [link](https://www3.ti.ch/DFE/DR/USTAT/index.php?fuseaction=pubblicazioni.dettaglioVolume&idCollana=3&idVolume=4101)
+
+]]
+
+
+---
+class: clear
+
+.left-column[
+.font70[
+#### *Emploies ETP*
+
+]
+.font60[
+.mid-warm-gray[(Bloc 1/4)
+
+]
+]
+]
+
+
+.right-column[
+
+```{r, echo = FALSE, fig.width = 11.5, fig.height = 8}
+# F.1, Impieghi ETP, dal 1995
+title.x <- c("Emploies ETP, santé et action sociale (Noga 86-88)",
+             "Moyenne annuelle, depuis 1995",
+             ""
+             )
+
+p1 <- fig_empl_line(tmp_long1, title.x = title.x)
+p1
+```
+
+]
+
+
+---
+class: clear
+
+.left-column[
+.font70[
+#### Emploies ETP
+#### 86-88 vs autres branches éco.
+
+]
+.font60[
+.mid-warm-gray[(Bloc 1/4)
+
+]
+]
+]
+
+
+.right-column[
+
+```{r, echo = FALSE, fig.width = 11.5, fig.height = 8}
+# Confronto rispetto ad altri comparti
+title.x[1] <- "Emploies ETP, santé et action sociale vs autres sections"
+
+p2 <- fig_empl_line(tmp_long1, div.x = Div.x1, title.x = title.x)
+p2
+```
+
+]
+
+
+---
+class: clear
+
+.left-column[
+.font70[
+#### Emploies ETP 
+#### 86-88 vs autres branches éco.
+#### 86-88 vs Activités spec. scient. et techniques
+
+]
+.font60[
+.mid-warm-gray[(Bloc 1/4)
+
+]
+]
+]
+
+
+.right-column[
+
+```{r, echo = FALSE, fig.width = 11.5, fig.height = 8}
+# Confronto rispetto ad altri comparti
+title.x[1] <- "Emploies ETP, santé et action sociale vs activités spec., scient. et techniques"
+
+p3 <- fig_empl_line(tmp_long1, div.x = Div.x2, title.x = title.x)
+p3
+```
+
+]
+
+---
+class: clear
+
+.left-column[
+.font70[
+
+#### .hl[Croissance des emploies ETP]
+
+]
+.font60[
+.mid-warm-gray[(Bloc 2/4)
+
+]
+]
+]
+
+
+.right-column[
+```{r, echo = FALSE, fig.width = 11.5, fig.height = 8}
+## Figure: con il delta
+title.x <- c("Croissance des emploies ETP, santé et action sociale (Noga 86-88)",
+             "Moyenne annuelle, depuis 1995",
+             ""
+             )
+
+renames1 <- c("Santé humaine et action sociale (Noga 86-88)" = "Noga 86-88")
+
+p4 <- fig_empl_bar(tmp_long1, renames1 = renames1, title.x = title.x)
+p4
+```
+
+]
+
+---
+class: clear
+
+.left-column[
+.font70[
+
+#### Croissance des emploies ETP
+#### 86-88 vs autres branches éco.
+
+]
+.font60[
+.mid-warm-gray[(Bloc 2/4)
+]
+]
+]
+
+
+.right-column[
+```{r, echo = FALSE, fig.width = 11.5, fig.height = 8}
+## Figure: con il delta
+Q <- as.character(levels(tmp_long1$`Division.économique`)[1:4])
+
+renames1 <- c("Santé humaine et action sociale (Noga 86-88)" = "Noga 86-88",
+              "Industrie manufacturière (Noga 10-33)" = "Noga 10-33",
+              "Construction (Noga 41-43)" = "Noga 41-43",
+              "Activités spéc., scient. et techniques (Noga 69-75)" = "Noga 69-75"
+              )
+
+title.x[1] <- "Croissance des emploies ETP, santé et action sociale vs autres sections économiques"
+
+
+p5 <- fig_empl_bar(tmp_long1, renames1 = renames1, title.x = title.x,
+                   div.x = Q, y1 = -25000, by.y = 12500)
+p5
+```
+
+]
+
+---
+class: clear
+
+.left-column[
+.font70[
+
+#### Croissance des emploies ETP
+#### 86-88 vs autres branches éco.
+#### 86-88 selon le taux d'occupation
+
+]
+.font60[
+.mid-warm-gray[(Bloc 2/4)
+
+]
+]
+]
+
+
+.right-column[
+```{r, echo = FALSE, fig.width = 11.5, fig.height = 8}
+# Crescita secondo il tempo di lavoro
+renames1 <- c("Plein temps" = "Pleins temps, 90% ou plus",
+              "Temps partiel I" = "Temps partiel I, 50-89%",
+              "Temps partiel II" = "Temps partiel II, 15-49%",
+              "Temps partiel III" = "Temps partiel III, moins du 15%"
+)
+
+title.x[1] <- "Croissance des emploies ETP, santé et action sociale, selon le temps de travail"
+
+p6 <- fig_empl_bar_tt(tmp_long1, renames1 = renames1, title.x = title.x)
+
+p6
+```
+
+]
+
+---
+class: clear
+
+.left-column[
+.font70[
+
+#### .hl[Taux de places vacantes]
+
+]
+.font60[
+.mid-warm-gray[(Bloc 3/4)
+
+]
+]
+]
+
+
+.right-column[
+```{r, echo = FALSE, fig.width = 11.5, fig.height = 8}
+# Crescita secondo il tempo di lavoro
+title.x <- c("Taux de places vacantes, santé et action sociale vs activités spec., scient. et techniques",
+             "En %, moyenne annuelle, depuis 2005",
+             "")
+
+p7 <- fig_pvac_line(tmp_long2, title.x = title.x,
+                    vac.x = "Taux (en %)",
+                    y2 = 3.2, by.y = 1
+                    )
+p7
+```
+
+]
+
+---
+class: clear
+
+.left-column[
+.font70[
+
+#### Taux de places vacantes
+#### Places vacantes, 86-88 vs autres branches éco.
+
+
+]
+.font60[
+.mid-warm-gray[(Bloc 3/4)
+
+]
+]
+]
+
+.right-column[
+```{r, echo = FALSE, fig.width = 11.5, fig.height = 8}
+# Crescita secondo il tempo di lavoro
+title.x <- c("Places vacantes, santé et action sociale vs activités spec., scient. et techniques",
+             "Moyenne annuelle, depuis 2005",
+             "")
+
+p8 <- fig_pvac_line(tmp_long2, div.x = Div.x2, title.x = title.x, y2 = 21000
+                    )
+p8
+```
+
+]
+
+---
+class: clear
+
+.left-column[
+.font70[
+
+#### Taux de places vacantes
+#### Places vacantes, 86-88 vs autres branches éco.
+#### Croissance des places vacantes, 86-88 vs autres branches éco.
+
+
+]
+.font60[
+.mid-warm-gray[(Bloc 3/4)
+
+]
+]
+]
+
+.right-column[
+```{r, echo = FALSE, fig.width = 11.5, fig.height = 8}
+# Crescita secondo il tempo di lavoro
+title.x <- c("Croissance de places vacantes, santé et action sociale vs activités spec., scient. et techniques",
+             "Moyenne annuelle, depuis 2005",
+             "")
+
+renames1 <- c("Santé humaine et action sociale (Noga 86-88)" = "Noga 86-88",
+              # "Industrie manufacturière (Noga 10-33)" = "Noga 10-33",
+              # "Construction (Noga 41-43)" = "Noga 41-43",
+              "Act. immobilières et act. spécialisées (Noga 68-75)" = "Noga 68-75"
+)
+
+p9 <- fig_pvac_bar(tmp_long2, title.x = title.x, renames1 = renames1)
+p9
+```
+
+]
+
+---
+class: clear
+
+.left-column[
+.font70[
+
+#### .hl[Difficultés de recrutement]
+
+]
+.font60[
+.mid-warm-gray[(Bloc 4/4)
+
+]
+]
+]
+
+
+.right-column[
+
+```{r, echo = FALSE, fig.width = 11.5, fig.height = 8}
+# Difficoltà di reclutamento
+title.x <- c("Difficultés de recrutement",
+             "En %, moyenne annuelle, depuis 2005",
+             "")
+
+p10 <- fig_drcr_line(tmp_long3, title.x = title.x)
+p10
+```
+
+]
+
+---
+class: clear
+
+.left-column[
+.font70[
+
+#### Difficultés de recrutement
+#### Difficultés de recrutement, 86-88 vs autres branches éco.
+
+]
+.font60[
+.mid-warm-gray[(Bloc 4/4)
+
+]
+]
+]
+
+
+.right-column[
+
+```{r, echo = FALSE, fig.width = 11.5, fig.height = 8}
+# Difficoltà di reclutamento
+title.x <- c("Difficultés de recrutement",
+             "En %, moyenne annuelle, depuis 2005",
+             "")
+
+p11 <- fig_drcr_line(tmp_long3, title.x = title.x)
+p11
+```
+
+]
+
+---
+class: clear
+
+.left-column[
+.font70[
+
+#### Difficultés de recrutement
+#### Difficultés de recrutement, 86-88 vs autres branches éco.
+#### Selon le niveau de formation
+
+]
+.font60[
+.mid-warm-gray[(Bloc 4/4)
+
+]
+]
+]
+
+
+.right-column[
+
+```{r, echo = FALSE, fig.width = 11.5, fig.height = 8}
+# Difficoltà di reclutamento
+title.x <- c("Difficultés de recrutement",
+             "En %, moyenne annuelle, depuis 2005",
+             "")
+
+p12 <- fig_drcr_line(tmp_long3, title.x = title.x)
+p12
+```
+
+]
+
+---
+class: hide-logo, inverse, center, middle
+
+# .font80[3.] Quel rôle pour la statistique publiques?
+
+---
+# 4. Conclusion
+
+.pull-left[
+
+```{r, echo = FALSE}
+magick::image_read("immagini/fig2.jpg")
+
+```
+
+.font60[*« .hl[La confiance doit être développée et constamment entretenue]. La communication et le dialogue avec toutes les parties prenantes jouent ici un rôle décisif.»*
+
+]
+.font50[
+[Source: Ethikrat (2019)](https://www.conseilethique-stat.ch/fr/assets/File/empfehlungen/20191105_Cr%C3%A9dibilit%C3%A9_Recommandation_Conseil%20d'%C3%A9thique.pdf)
+
+]
+]
+
+--
+
+.pull-right[
+.font80[
+
+##### Changements, experiences, discussion
+<br>
+
+.white[']- Articles (statistiques du chômage, Statent, Espa...)  
+.white[']- Rélations avec autres offices (formation professionel, statistiques sanitaires...)  
+.white[']- Quel futur pour les profession sanitaire (projet de l'haute école professionel)  
+
+]
+]
+
+--
+
+.pull-right[
+.font80[
+
+.white[']- .hl[mise à jour 2025]
+
+]
+]
+
+---
+class: clear
+
+.left-column[
+.font70[
+
+#### Croissance des emploies
+
+]
+.font60[
+.mid-warm-gray[(Bloc 5/5)
+
+]
+]
+]
+
+
+.right-column[
+
+```{r, echo = FALSE, fig.width = 11.5, fig.height = 8}
+# Confronto tra periodi
+title.x <- c("Croissance annuelle des emploies, selon le taux d'occupation, santé et action sociale",
+             "avant 2015 vs. après 2015 (petits cercles: dernières données)",
+             "")
+
+renames1 <- c("Plein temps" = "Pleins temps, 90% ou plus",
+              "Temps partiel I" = "Temps partiel I, 50-89%",
+              "Temps partiel II" = "Temps partiel II, 15-49%",
+              "Temps partiel III" = "Temps partiel III, moins du 15%"
+)
+
+p13 <- fig_violin(tmp_long1, title.x = title.x, renames1 = renames1, cut.x = 2015)
+p13
+```
+
+]
+
+---
+class: clear
+
+.left-column[
+.font70[
+
+#### Croissance des emploies
+#### Croissance des emploies, division
+
+]
+.font60[
+.mid-warm-gray[(Bloc 5/5)
+
+]
+]
+]
+
+
+.right-column[
+
+```{r, echo = FALSE, fig.width = 11.5, fig.height = 8}
+title.x[1] <- "Croissance annuelle des emploies, selon le taux d'occupation et la division économique"
+
+p11 <- fig_violin_div(tmp_long1, title.x = title.x, cut.x = 2015)
+p11
+```
+
+]
+
+
+---
+class: clear
+
+.left-column[
+.font70[
+
+#### Croissance des emploies
+#### Croissance des emploies, division
+#### Difficultés de recrutement
+
+]
+.font60[
+.mid-warm-gray[(Bloc 5/5)
+
+]
+]
+]
+
+
+.right-column[
+
+```{r, echo = FALSE, fig.width = 11.5, fig.height = 8}
+# Difficoltà di reclutamento
+title.x[1] <- "Difficultés de recrutement, selon le niveau de formation, santé et action sociale"
+
+p12 <- fig_drcr_violin2(tmp_long3, title.x = title.x, cut.x = 2015)
+p12
+```
+
+]
+
+
+
+---
+class: title-slide-fin clear hide-logo
+
+![](immagini/logo_ultima.png)
+
+# .white[.]
+
+
+.pull-right2[
+.font70[
+
+#### **Contatti**
+Eric Stephani  
+[eric.stephani@ti.ch](mailto:eric.stephani@ti.ch)
+
+.white[ ]
+Repubblica e Canton Ticino  
+Divisione delle risorse  
+**Ufficio di statistica**  
+[www.ti.ch/ustat](http://www.ti.ch/ustat)
+
+
+.font50[
+<br>
+<br>
+<br>
+.mid-warm-grey[
+Slides crées avec R via: [{r-project}](https://www.r-project.org), [{xaringan}](https://github.com/yihui/xaringan) e [{schedeustat}]()
+
+]
+]
+]
+]
+
+
+
