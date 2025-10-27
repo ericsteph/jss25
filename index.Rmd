@@ -573,7 +573,7 @@ title.x <- c("Difficultés de recrutement",
              "En %, moyenne annuelle, depuis 2005",
              "")
 
-p11 <- fig_drcr_line(tmp_long3, title.x = title.x)
+p11 <- fig_drcr_line(tmp_long3, title.x = title.x, div.x = Div.x2)
 p11
 ```
 
@@ -606,7 +606,7 @@ title.x <- c("Difficultés de recrutement",
              "En %, moyenne annuelle, depuis 2005",
              "")
 
-p12 <- fig_drcr_line(tmp_long3, title.x = title.x)
+p12 <- fig_drcr_form_line(tmp_long3, title.x = title.x)
 p12
 ```
 
