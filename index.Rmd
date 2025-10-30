@@ -532,7 +532,7 @@ magick::image_read("immagini/fig2.jpg")
 
 - Entretien de bonnes .hl[relations] avec autres départements/offices: formation professionnelle, statistiques sanitaires...  
 
-- Participation à des workshop: quel .hl[futur] pour les professions sanitaires (projet de la Haute école spécialisée de la Suisse italienne, Supsi)  
+- Participation à des workshop: quel .hl[futur] pour les professions sanitaires [(projet de la Haute école spécialisée de la Suisse italienne, Supsi)](https://www.supsi.ch/foresight-il-futuro-non-si-predice-si-prepara)
 
 ]
 ]
