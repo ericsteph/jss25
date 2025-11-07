@@ -2,4 +2,5 @@
 
 JSS 2025 | Geneva
 
-https://ericsteph.github.io/jss25/
+https://ericsteph.github.io/jss25  
+
