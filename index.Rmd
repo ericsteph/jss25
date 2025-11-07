@@ -107,7 +107,7 @@ Collecte de réponses du [service de référence en ligne Interroge](https://www
 .font80[
 .mid-warm-grey[1. ] Une statistique et un article    
 
-.mid-warm-grey[2. ] Quelques chiffres et graphiques (intéressants)      
+.mid-warm-grey[2. ] Quelques (spannende) chiffres et graphiques        
 
 .mid-warm-grey[3. ] Une question ouverte
 
@@ -500,7 +500,7 @@ p8
 ]
 
 ---
-# Une question ouverte?
+# Notre question ouverte
 
 
 .font70[
@@ -542,7 +542,7 @@ magick::image_read("immagini/fig2.jpg")
 .font70[
 .pull-right[
 
-.hl[>] .mid-warm-grey[*Backoffice*:] mise à jour et suivi des données de la STATEM
+.hl[>] .mid-warm-grey[*Minimaliste*:] mise à jour et suivi des données de la STATEM
 
 ]
 ]
